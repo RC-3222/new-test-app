@@ -10,9 +10,10 @@ const initialNoteList = storedValue ? JSON.parse(storedValue) : [
     },
 ]
 
-const initialTags:string[] = [];
+let initialTags:string[] = [];
 for (const note of initialNoteList) {
     initialTags.push(...note.tags);
 }
+initialTags = [...new Set(initialTags)]
 
 export { initialTags, initialNoteList }

@@ -28,12 +28,17 @@ export const Tags: FC = () => {
                 sx={{
                     bgcolor: 'whitesmoke',
                     boxShadow: 2,
+
+                    display:'flex',
+                    flexWrap:'wrap',
                 }}
+                
                 value={selectedTags}
                 onChange={handleTags}
                 aria-label="tags"
             >
-                {allTags.map((tag) => <ToggleButton color='primary' key={tag} value={tag} aria-label={tag} sx={{textTransform:'none', fontSize:'1.5rem', padding:'.375rem .75rem'}}>
+                {allTags.map((tag) => <ToggleButton color='primary' key={tag} value={tag} aria-label={tag} sx={{textTransform:'none', fontSize:'1.5rem', padding:'.375rem .75rem', 
+                    flexGrow:'1', flexShrink:'1'}}>
                     {tag}
                 </ToggleButton>)}
             </ToggleButtonGroup>
