@@ -37,7 +37,7 @@ export const EditNoteModal: FC<EditModalProps> = ({ isOpen, handleClose, noteDat
         handleClose={handleClose}
     >
         <form className={styles.form} onSubmit={handleSubmit}>
-            <Typography color='primary' id="add-note-modal-title" variant="h6" component="h2">Edit Note</Typography>
+            <Typography color='primary' id="edit-note-modal-title" variant="h6" component="h2">Edit Note</Typography>
             <TextField value={title} onChange={(ev)=>setTitle(ev.target.value)} fullWidth required={true} id="title-input" label="Title" variant="outlined" color='primary' />
             <TextField value={text} onChange={(ev)=>setText(ev.target.value)} fullWidth required multiline minRows={3} id="text-input" label="Text" variant="outlined" color='primary' />
             <Button sx={{alignSelf:'flex-end'}} type='submit' variant="outlined">Update Note</Button>
