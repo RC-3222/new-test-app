@@ -29,18 +29,32 @@ export const Tags: FC = () => {
                     bgcolor: 'whitesmoke',
                     boxShadow: 2,
 
-                    display:'flex',
-                    flexWrap:'wrap',
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    flexGrow: '1',
+                    alignItems:'stretch',
+
+                    overflow:'hidden',
+                    borderRadius:'8px'
                 }}
-                
+
                 value={selectedTags}
                 onChange={handleTags}
                 aria-label="tags"
             >
-                {allTags.map((tag) => <ToggleButton color='primary' key={tag} value={tag} aria-label={tag} sx={{textTransform:'none', fontSize:'1.5rem', padding:'.375rem .75rem', 
-                    flexGrow:'1', flexShrink:'1'}}>
-                    {tag}
-                </ToggleButton>)}
+                {allTags.map((tag) => <ToggleButton
+                    color='primary'
+                    key={tag}
+                    value={tag}
+                    aria-label={tag}
+                    sx={{
+                        textTransform: 'none',
+                        fontSize: '1.5rem',
+                        padding: '.375rem .75rem',
+                        flexGrow: '1',
+                        borderRadius:'0'
+                    }
+                    }>{tag}</ToggleButton>)}
             </ToggleButtonGroup>
             : <Typography
                 paragraph
