@@ -3,7 +3,7 @@ import { Card, Button, Container, CardHeader, Typography } from '@mui/material';
 import { deleteNote } from '../../store/notes-slice';
 import { highlightText } from '../../helpers/highlight-tags';
 import { EditNoteModal } from '../modals';
-import { NoteTags } from './note-tags';
+import { NoteTags } from '../note-tags';
 import { Note } from '../../types/notes';
 import { useAppDispatch } from '../../store/hooks';
 
