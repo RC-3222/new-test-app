@@ -1,5 +1,5 @@
 import { Button, TextField, Typography, debounce } from '@mui/material';
-import { ChangeEventHandler, FC, useCallback, useEffect, useMemo, useState } from 'react';
+import { ChangeEventHandler, FC, useEffect, useMemo, useState } from 'react';
 import { useAppDispatch } from '../../../store/hooks';
 import { addNote } from '../../../store/notes-slice';
 import { BasicModal } from '../basic-modal';
@@ -25,7 +25,7 @@ export const AddNoteModal: FC<AddNoteModalProps> = ({ isOpen, handleClose }) => 
 
     const debouncedParseTmpTags = useMemo(()=>debounce(async (val:string)=>{
         setTmpTags(parseTags(val))
-    }, 350), [])
+    }, 400), [])
 
     const updText: ChangeEventHandler<HTMLInputElement> = (ev) => {
         setText(ev.target.value)

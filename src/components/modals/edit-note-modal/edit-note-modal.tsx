@@ -29,7 +29,7 @@ export const EditNoteModal: FC<EditModalProps> = ({ isOpen, handleClose, noteDat
 
     const debouncedParseTmpTags = useMemo(()=>debounce(async (val:string)=>{
         setTmpTags(parseTags(val))
-    }, 500), [])
+    }, 400), [])
 
     const updText: ChangeEventHandler<HTMLInputElement> = (ev) => {
         setText(ev.target.value)

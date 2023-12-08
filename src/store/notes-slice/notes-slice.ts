@@ -4,6 +4,7 @@ import { v4 as uuid } from 'uuid';
 import { initialNoteList, initialTags } from './initial-values';
 import { LOCALSTORAGE_NOTES_KEY } from '../../constants/local-storage';
 import { Note } from '../../types/notes';
+import { combineNoteTags } from './helpers';
 
 type InitialNoteState = {
   noteList: Note[];
@@ -31,11 +32,7 @@ export const notesSlice = createSlice({
       const id = uuid();
       state.noteList.push({id, title, text, tags});
 
-      const allTags = [];
-      for (const note of state.noteList) {
-        allTags.push(...note.tags);
-      }
-      state.allTags = [...new Set(allTags)];
+      state.allTags = combineNoteTags(state.noteList);
 
       localStorage.setItem(LOCALSTORAGE_NOTES_KEY, JSON.stringify(state.noteList));
     },
@@ -48,22 +45,14 @@ export const notesSlice = createSlice({
       note.text = text;
       note.tags = tags;
 
-      const allTags = [];
-      for (const note of state.noteList) {
-        allTags.push(...note.tags);
-      }
-      state.allTags = [...new Set(allTags)];
+      state.allTags = combineNoteTags(state.noteList);
 
       localStorage.setItem(LOCALSTORAGE_NOTES_KEY, JSON.stringify(state.noteList));
     },
     deleteNote: (state, action: PayloadAction<{ id: string }>) => {
       state.noteList = state.noteList.filter(item=>item.id !== action.payload.id)
 
-      const allTags = [];
-      for (const note of state.noteList) {
-        allTags.push(...note.tags);
-      }
-      state.allTags = [...new Set(allTags)];
+      state.allTags = combineNoteTags(state.noteList);
       
       localStorage.setItem(LOCALSTORAGE_NOTES_KEY, JSON.stringify(state.noteList));
     },

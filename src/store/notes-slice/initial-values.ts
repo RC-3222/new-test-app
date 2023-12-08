@@ -1,4 +1,5 @@
 import { LOCALSTORAGE_NOTES_KEY } from "../../constants/local-storage";
+import { combineNoteTags } from "./helpers";
 
 const storedValue = localStorage.getItem(LOCALSTORAGE_NOTES_KEY);
 const initialNoteList = storedValue ? JSON.parse(storedValue) : [
@@ -10,10 +11,6 @@ const initialNoteList = storedValue ? JSON.parse(storedValue) : [
     },
 ]
 
-let initialTags:string[] = [];
-for (const note of initialNoteList) {
-    initialTags.push(...note.tags);
-}
-initialTags = [...new Set(initialTags)]
+const initialTags = combineNoteTags(initialNoteList);
 
 export { initialTags, initialNoteList }

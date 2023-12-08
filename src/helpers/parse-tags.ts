@@ -1,1 +1,1 @@
-export const parseTags = (str:string) => str.split(' ').filter((word) => word.startsWith("#"));
+export const parseTags = (str:string) => [...new Set(str.split(' ').filter((word) => word.startsWith("#") && word.length > 1))];
