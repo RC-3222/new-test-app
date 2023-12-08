@@ -1,0 +1,1 @@
+export const LOCALSTORAGE_NOTES_KEY: string = 'notes_key';

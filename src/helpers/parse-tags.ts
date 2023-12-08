@@ -1,0 +1,1 @@
+export const parseTags = (str:string) => str.split(' ').filter((word) => word.startsWith("#"));
